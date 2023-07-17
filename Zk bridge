@@ -1,0 +1,25 @@
+/**
+
+* @param dstChainId - the destination chain identifier
+
+* @param zkLightClient - the ZkBridge oracle address
+
+*/
+
+function setOracle(uint16 dstChainId, address zkLightClient) external {
+
+uint256 TYPE_ORACLE = 6;
+
+ILayerZeroEndpoint(lzEndpointAddress).setConfig(
+
+ILayerZeroEndpoint(lzEndpointAddress).getSendVersion(address(this)),
+
+dstChainId,
+
+TYPE_ORACLE,
+
+abi.encode(zkLightClient)
+
+);
+
+}
